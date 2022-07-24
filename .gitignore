@@ -1,6 +1,6 @@
-backend/node_modules
-backend/.env
-backend/medias
+api/node_modules
+api/.env
+api/medias
 
 
 # Logs
