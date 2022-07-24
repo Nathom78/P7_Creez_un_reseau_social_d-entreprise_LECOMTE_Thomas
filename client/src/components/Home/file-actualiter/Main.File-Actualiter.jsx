@@ -9,7 +9,7 @@ import Card from "./CardPost/Card.File.Acutaliter";
 const Post = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.postReducer);
-     
+   
   useEffect( () => { 
     dispatch(getPosts());    
   }, [dispatch, posts.length]);  

@@ -9,7 +9,8 @@ const initialState = {};
 export default function postReducer(state = initialState, action) {
   switch (action.type) {
 
-    case ADD_POST:     
+    case ADD_POST:
+    case UPDATE_POST:     
     return initialState;    
     
     case GET_POSTS:
@@ -39,18 +40,21 @@ export default function postReducer(state = initialState, action) {
         return post;
       });
 
-    case UPDATE_POST:
+      /*case UPDATE_POST:
       return state.map((post) => {
+        console.log("payload "+action.payload);
+        console.log("payload.file :" + action.payload.file.name);
         if (post._id === action.payload.postId) {
-          
+          console.log(state);          
           return {
             ...post,
             message: action.payload.message,
-          };
+            imageUrl: "http://localhost:3000/medias/" + action.payload.file.name,        
+          };          
         }
         
         return post;
-      });
+      });*/
 
     case DELETE_POST:
       return state.filter((post) => post._id !== action.payload);

@@ -3,7 +3,7 @@ const userModel = require("../models/user.model");
 const fs = require('fs');
 
 exports.createPost = (req, res) => {
-  if (req.file) {
+  if (req.file) { console.log(req.file); 
     const post = new Post({
       ...req.body,
       posterId: req.body.posterId,
@@ -30,11 +30,13 @@ exports.createPost = (req, res) => {
 
 exports.updatePost = (req, res) => {
   // suprimer l'ancienne image si on la modifie
+  console.log(req.body);
+  console.log(req.file);
   if (req.file)
     {     
       Post.findOne({ _id: req.params.id })
       .then(post => {        
-        const filename = post.imageUrl.split('/images/')[1];
+        const filename = post.imageUrl.split('/medias/')[1];
         fs.exists(`medias/${filename}`, (exist) => {          
           if(exist) fs.unlink(`medias/${filename}`,() => {})
         });        
@@ -44,7 +46,7 @@ exports.updatePost = (req, res) => {
   
   const postObject = req.file ?
   {
-    ...JSON.parse(req.body.post),
+    ...req.body,
     imageUrl: `${req.protocol}://${req.get('host')}/medias/${req.file.filename}`
   } :
   { ...req.body };

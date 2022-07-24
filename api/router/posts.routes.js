@@ -8,7 +8,7 @@ const likeAndUnlikeCtrl = require("../controllers/likeAndUnlike");
 
 router.get("/", auth, postCtrl.getPosts);
 router.post("/", auth, multer, postCtrl.createPost);
-router.put("/:id", auth, postCtrl.updatePost);
+router.put("/:id", auth, multer, postCtrl.updatePost);
 router.delete("/:id", auth, postCtrl.deletePost);
 
 router.put("/like-post/:id", auth, likeAndUnlikeCtrl.likePost);

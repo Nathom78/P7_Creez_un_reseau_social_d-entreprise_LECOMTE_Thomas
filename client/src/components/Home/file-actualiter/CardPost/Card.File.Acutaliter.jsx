@@ -27,7 +27,9 @@ const CardAcutaliter = ({ post }) => {
   };
 
   const updateItem = (e) => {
-    if (TextUpdated) {
+    console.log("file "+ file);
+    if (TextUpdated || file) {
+      
       dispatch(updatePost(post._id, TextUpdated, file));
     }
     setIsUpdated(false);

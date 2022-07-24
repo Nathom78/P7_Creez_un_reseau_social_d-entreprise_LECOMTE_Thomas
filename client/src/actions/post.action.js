@@ -81,12 +81,18 @@ export const unlikePost = (postId, userId) => {
 
 export const updatePost = (postId, message, file) => {
   return (dispatch) => {
-    authAxios
-      .put(`${apiUrl}/${postId}`, { message }, {file})
+    console.log("file postaction "+file);
+    const data = new FormData();    
+    data.append("message", message);
+    if (file) data.append("file", file);
+    console.log("data "+data);
+    authAxios      
+      .put(`${apiUrl}/${postId}`, data )
       .then((res) => {
+        console.log(res.data);
         dispatch({
           type: UPDATE_POST,
-          payload: { postId, message },
+          payload: { postId, message, file },
         });
       })
       .catch((err) => console.log(err));

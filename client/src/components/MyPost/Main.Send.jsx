@@ -33,6 +33,8 @@ const MainSend = () => {
     setMessage(e.target.value);    
   };
 
+  
+
   return (
     <main className="mainContainer__new_post">
       <div className="myPost">
