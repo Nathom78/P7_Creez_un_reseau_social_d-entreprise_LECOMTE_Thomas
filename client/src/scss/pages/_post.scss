@@ -1,0 +1,294 @@
+.postContainer {
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+    font-size: 17px;
+    width: 70%;
+    margin: 10px auto;
+    position: relative;
+    @media (max-width: 768px) {
+        width: 95%;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid rgb(225, 29, 72);
+    }
+
+    .img-name-time {
+        display: flex;
+        align-items: center;
+    }
+
+    .postContainer__header__name {
+        margin-left: 10px;
+        text-align: start;
+    }
+
+
+
+    .update-delete {
+        display: flex;
+
+        i.fa.fa-edit {
+            margin-right: 30px;
+            color: rgba(156, 163, 175, 12);
+
+            &:hover {
+                color: rgb(105, 111, 122);
+            }
+        }
+
+        i.fa.fa-trash {
+            &:hover {
+                color: rgb(105, 111, 122);
+            }
+        }
+    }
+
+    .textarea {
+        height: 70px;
+        border-radius: 5px;
+        border: 1px solid #c0c0c0;
+        padding: 10px;
+        margin-top: 10px;
+        color: rgb(126 127 129);
+        font-size: 17px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    
+
+    .comment-card {
+        width: 100%;
+        background-color: #fff;
+        display: none;
+        border-top: 2px solid #c0c0c0;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        padding-top: 0;
+    }
+
+    .each-user-comment {
+        border: 1px solid #c0c0c0;
+        border-radius: 30px 30px 0 30px;
+        margin-top: 30px;
+    }
+
+    .is-author {
+        background-color: rgb(243, 244, 246);
+        color: #333;
+
+        i.fa.fa-trash {
+            color: #c1bfbf;
+        }
+
+        span.author {
+            color: #333;
+            font-style: italic;
+        }
+    }
+
+    #textareaComment {
+        height: 67px;
+        width: 95%;
+        font-size: 14px;
+        border-radius: 15px 15px 0 15px;
+    }
+
+    
+
+
+    .avatar-name-time {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            margin-right: 14px;
+            color: rgb(126 127 129);
+            font-style: italic;
+        }
+    }
+
+
+    .avatar-name {
+        display: flex;
+        align-items: center;
+
+        h4 {
+            margin-left: 10px;
+        }
+    }
+
+    .comment-text {
+        font-size: 15px;
+        padding: 7px 7px 7px 31px;
+        text-align: start;
+        display: flex;
+        justify-content: space-between;
+
+        i.fa-trash {
+            transition: all 0.1s ease-in-out;
+            font-size: 20px;
+
+            &:hover {
+                color: rgb(195, 22, 22);
+            }
+        }
+    }
+
+
+    .viewPost {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 90%;
+        text-align: start;
+        font-size: 18px;
+
+        img {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            border: 2px solid rgba(243, 244, 246, 1);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-top: 8px;
+        }
+        .iconImgBtn {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            label i {
+                font-size: 25px;
+                color: rgba(225, 29, 72, 1);
+                margin-top: 10px;
+                cursor: pointer;                
+            }        
+        }        
+
+        input.file-input {
+            visibility: hidden;
+            width: 0;
+            height: 0          
+        }
+
+        .btn-updateItem {
+            background-color: rgba(156, 163, 175, 12);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+    
+            &:hover {
+                background-color: rgb(105, 111, 122);
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+        }
+        button.btn-updateItem.Upload {
+            width: 90%;
+            align-items: center;
+            justify-content: center;            
+            text-align: center;
+        }
+    }
+
+    .like_comment {
+
+        .like,
+        .comment {
+            display: flex;
+        }
+
+        span {
+            margin-right: 7px;
+            margin-top: 10px;
+        }
+    }
+
+    i {
+        font-size: 25px;
+        color: rgba(156, 163, 175, 12);
+        margin-top: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .fa-regular.fa-heart:hover {
+        color: rgb(225, 29, 72);
+    }
+
+    .fa-solid.fa-heart {
+        color: rgb(225, 29, 72);
+    }
+
+    .textarea {
+        // width: 100%;
+        height: 70px;
+        border-radius: 5px;
+        border: 1px solid #c0c0c0;
+        padding: 10px;
+        margin-top: 10px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    /*.btn-updateItem {
+        background-color: rgba(156, 163, 175, 12);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(105, 111, 122);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    }*/
+
+    .appear {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        background-color: #fff;
+    }
+}

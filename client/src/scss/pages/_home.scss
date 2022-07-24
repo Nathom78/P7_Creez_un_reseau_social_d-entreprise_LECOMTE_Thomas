@@ -1,0 +1,184 @@
+.main_container {
+    height: 100%;
+
+    .section_container {
+        display: flex;
+        justify-content: space-around;
+        margin: auto 25px;
+    }
+
+    .articleHome {
+        flex: 0.5;
+
+        h2,h3{
+            text-transform: capitalize;
+            // margin-bottom: 15px;
+        }
+        h2.name{
+            margin-bottom: 20px;
+            text-align: center;
+            color: rgba(190, 18, 60, 1);
+        }
+        h3{
+            font-size: 19px;
+            padding-bottom: 3px;
+        }
+        .renseignement{
+            // background-color: red;
+            width: 75%;
+            margin: auto;
+        }
+
+        .divContainer {
+            width: 98%;
+            margin: 10px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            @media (max-width: 768px) {
+                display: none;
+             }
+
+        }
+
+        .container_img_profil {
+            color: #000;
+            text-align: center;
+
+            img {
+                width: 196px;
+                height: 200px;
+                border-radius: 50%;
+                margin-bottom: 15px;
+                border: 1px solid rgba(225, 29, 72, 1);
+            }
+        }
+    }
+
+
+    main.mainContainer__post {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: 90vh;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            display: display-listitem;
+        }
+        @media (max-width: 768px) {
+            flex: 100%;
+        }
+
+
+        .iconImgAndPost {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 6px;
+            padding-bottom: 9px;
+            border-top: 1px solid #c0c0c0;
+        }
+
+        i {
+            font-size: 25px;
+            color: rgba(156, 163, 175, 12);
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        
+    }
+
+
+
+   
+
+
+
+    .asideHome {
+        flex: 0.5;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        h2 {
+            color: rgb(225, 29, 72);
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .divContainer {
+            width: 98%;
+            margin: 10px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            height: 80vh;
+            overflow: scroll;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            @media (max-width: 768px) {
+               display: none;
+            }
+        }
+
+        .eachUser {
+            margin-bottom: 20px;
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            align-content: center;
+        }
+
+        .user {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+            width: 40%;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+
+            img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                border: 2px solid rgb(225, 29, 72);
+                text-align: center;
+                padding: 1px;
+            }
+
+            .name {
+                // margin-top: 5px;
+                font-size: 17px;
+                color: #000;
+                font-weight: bold;
+            }
+            i{
+                // font-size: 20px;
+                color: rgb(225, 29, 72);
+                // margin-top: 5px;
+            }
+        }
+    }
+}
+
+
+#root{
+    height: 100vh;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

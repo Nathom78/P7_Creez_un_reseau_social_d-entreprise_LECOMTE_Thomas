@@ -1,0 +1,130 @@
+.mainContainer__100vh {
+    main.mainContainer__new_post {
+        width: 50%;
+        // height: 100%;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 768px) {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        // background: #000;
+        h1 {
+            color: rgb(225, 29, 72);
+            font-size: 23px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-left: 25px;
+            text-align: start;
+        }
+
+        .myPost {
+            background-color: #fff;
+            border-radius: 15px;
+            margin-top: 20px;
+            padding: 10px;
+            width: 550px;
+            @media (max-width: 768px) {
+                width: 95%;
+            }
+        }
+
+        .message {
+            width: 90%;
+            height: 120px;
+            border: 1px solid rgba(166, 166, 166, 0.955);
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 5px;
+            font-size: 14px;
+
+            &:focus {
+                outline: none;
+
+            }
+
+            &::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: rgba(225, 29, 72, 1);
+                border-radius: 20px;
+                border: 1px solid #f1f1f1;
+            }
+        }
+
+        .containerImg {
+            width: 90%;
+            margin: 0 auto;
+
+            img {
+                width: 356px;
+                height: 274px;
+                background-position: center;
+                background-size: cover;
+                border-radius: 15px;
+                border: 1px solid rgba(166, 166, 166, 0.955);
+
+            }
+        }
+
+        .inputImg-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input.file-input {
+            visibility: hidden;
+            width: 0;
+            height: 0
+        }
+
+        .desapear {
+            display: none;
+        }
+
+        .appear {
+            display: inline-block;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+        }
+
+        i {
+                font-size: 25px;
+                color: rgba(225, 29, 72, 1);
+                margin-top: 10px;
+                cursor: pointer;
+            }
+
+        .iconImgAndPost {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+            padding-top: 20px;
+            padding-bottom: 20px;                        
+        }
+    }
+
+    .container-name-picture {
+        width: 80%;
+        height: 40px;
+    }
+}

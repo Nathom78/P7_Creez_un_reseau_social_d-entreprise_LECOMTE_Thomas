@@ -1,0 +1,229 @@
+.main-profil {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 768px) {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+
+
+    h1 {
+        span {
+            font-weight: bold;
+            color: rgb(225, 29, 72);
+        }
+    }
+
+    .displayBottom {
+        display: flex;
+        // flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 28px;
+        @media (max-width: 768px) {
+            flex-direction: column;
+            margin-top: 0;
+        }
+    }
+
+
+    .my-profil {
+        background-color: #fff;
+        border-radius: 15px;
+        margin-top: 20px;
+        padding: 17px;
+        width: 700px;
+        margin-bottom: 30px;
+        @media (max-width: 768px) {
+            width: 95%;
+        }
+
+    }
+
+    .conatainer_name_profilImg {
+        padding: 11px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 60px;
+        @media (max-width: 768px) {
+            margin-right: 0;
+        }
+
+        form.upload_img {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+
+        }
+
+        .injected_img_path {
+            margin-top: 19px;
+            width: 106%;
+            height: 37px;
+            border: 1px solid rgba(166, 166, 166, 0.955);
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 14px;
+            color: #b5b5b5b5;
+            background-color: #fff;
+
+            &:focus {
+                outline: none;
+            }
+
+        }
+
+        i {
+            font-size: 33px;
+            color: rgba(225, 29, 72, 1);
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        input.file-input {
+            visibility: hidden;
+            width: 0;
+            height: 0
+        }
+
+        .Upload {
+            padding: 10px 20px;
+            background-color: rgb(225, 29, 72);
+            color: #fff;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            border: none;
+
+            &:hover {
+                background-color: rgb(190, 18, 60);
+            }
+
+        }
+
+        .icon_UpdateImg {
+            padding-bottom: 11px;
+        }
+    }
+
+    .containerImg {
+        img {
+            border: 1px solid rgba(225, 29, 72, 1);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            padding: 3px;
+        }
+
+    }
+
+    .forContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+
+    h3.time_of_inscription {
+        color: gray;
+
+        span {
+            font-weight: bold;
+            color: #000;
+        }
+    }
+
+    .bioInput-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 35px;
+
+
+        .bio {
+            width: 90%;
+            height: 120px;
+            border: 1px solid rgba(166, 166, 166, 0.955);
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 5px;
+            font-size: 15px;
+
+            &:focus {
+                outline: none;
+
+            }
+
+            &::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: rgba(225, 29, 72, 1);
+                border-radius: 20px;
+                border: 1px solid #f1f1f1;
+            }
+        }
+    }
+
+
+
+
+
+    button {
+        background-color: rgb(225, 29, 72);
+        width: 150px;
+        height: 40px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: rgb(190, 18, 60);
+        }
+    }
+
+    i {
+        font-size: 20px;
+        color: #fff;
+        cursor: pointer;
+
+    }
+
+
+
+    .iconImgAndPost {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    // .desappear {
+    //     display: none;
+    // }
+
+    .appear {
+        display: inline-block;
+    }
+}

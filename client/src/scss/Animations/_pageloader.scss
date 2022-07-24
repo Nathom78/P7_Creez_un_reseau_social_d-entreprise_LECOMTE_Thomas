@@ -1,0 +1,18 @@
+.loader {
+  position: fixed;
+  background: rgba(243, 244, 246, 1);
+  height: 100vh;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+
+  i {
+    font-size: 39px;
+    margin-left: 31px;
+    color: rgb(190 18 60 / 92%);
+  }
+}
