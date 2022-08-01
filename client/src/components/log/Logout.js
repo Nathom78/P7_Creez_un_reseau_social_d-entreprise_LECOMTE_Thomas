@@ -2,8 +2,8 @@ import React from "react";
 
 const Logout = () => {
   const logout = () => {
-    localStorage.removeItem("uid");
-    localStorage.removeItem("jwt");
+    sessionStorage.removeItem("uid");
+    sessionStorage.removeItem("jwt");
 
     window.location.reload();
   };

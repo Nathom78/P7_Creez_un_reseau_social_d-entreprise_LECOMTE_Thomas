@@ -4,47 +4,79 @@ import { useDispatch, useSelector } from "react-redux";
 import { updatePost } from "../../../../actions/post.action";
 import { shortDateParser, isEmpty } from "../../../utils/Utils";
 import DeleteCard from "./Delete.Card";
-import LikeButton from "../../Like.Button";
+import LikeButton from "./Like.Button";
 import CommentCard from "../comments/Comment";
 import { roleToken } from "../../../../token/Token";
 
-const CardAcutaliter = ({ post }) => {
+const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
   const [loadPost, setLoadPost] = React.useState(true);
   const usersData = useSelector((state) => state.usersReducer);
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
   const [isUpdated, setIsUpdated] = React.useState(false);
-  const [TextUpdated, setTextUpdatedState] = React.useState(post.message);
+  const [TextUpdated, setTextUpdatedState] = React.useState(null);
   const [postPicture, setPostPicture] = React.useState(post.imageUrl);
-  const [file, setFile] = React.useState(null);
-  
-  const [showComment, setShowComment] = React.useState(false);  
+  const [file, setFile] = React.useState(null);   
 
+  const idFlou = "flou" + post._id;
+  const divComment = document.getElementById("post"+post._id);
+  
+  const [lastPostCommented, setLastPostCommented] = React.useState("");
+  
+  function UseFlou(postId){
+    const flouBack = document.getElementById("flou");
+    const allreadyOn = flouBack.classList.contains("flou-appear");
+
+    if (commentArray.includes(postId)) {
+      const result = commentArray.filter( clé => clé !== postId);      
+      setPostCommentOn(result);
+      if (result.length === 0 ) flouBack.classList.toggle("flou-appear");
+    }
+    else if (!commentArray.includes(postId) ) {
+      setPostCommentOn([...commentArray, postId ]);
+      (!allreadyOn)&&flouBack.classList.toggle("flou-appear"); 
+    }     
+  } 
+  
   const handlePicture = (e) => {
     setFile(e.target.files[0]);
     setPostPicture(URL.createObjectURL(e.target.files[0]));    
   };
-
-  const updateItem = (e) => {
-    console.log("file "+ file);
-    if (TextUpdated || file) {
-      
-      dispatch(updatePost(post._id, TextUpdated, file));
+  
+  const updateItem = (e) => {    
+    if (TextUpdated || file) {      
+      dispatch(updatePost(post._id, TextUpdated, file));                
     }
-    setIsUpdated(false);
+    setIsUpdated(false);          
+  };
+  //Récupération de la fonction de mise à jour
+  const [, fctMiseAJour] = React.useState();
+  //Encapsulation de l'appel
+  const miseAJour = React.useCallback(() => fctMiseAJour({}), []);
+
+  const handleClick = () => {    
+    divComment.classList.toggle("see");    
+    UseFlou(post._id);    
+    //Appel pour forcer le rendu du composant
+    miseAJour();
   };
 
   useEffect(() => {
-    !isEmpty(usersData[0]) && setLoadPost(false);
+    !isEmpty(usersData[0]) && setLoadPost(false); /* Test d'un user afin de lire les posts */
   }, [usersData]);
 
+  useEffect(() => { /* Pour remettre les commentaires ouvert aprés un render juste aprés un ajout d'un commentaire ou une supression */
+    commentArray.forEach(el => document.getElementById("post"+el).classList.toggle("see"));
+  },[]);
+  useEffect(() => miseAJour(),[]);
+  
   return (
-    <div className="postContainer" key={post._id}>
+    <div className="postContainer" key={post._id} id={"post"+post._id} >
       {loadPost ? (
         <i className="fa fa-spinner fa-spin"></i>
       ) : (
-        <>
+        <>{/*// informations user //*/}
           <div className="postContainer__header">
             <div className="img-name-time">
               <img
@@ -75,12 +107,8 @@ const CardAcutaliter = ({ post }) => {
                 <span>{shortDateParser(post.createdAt)}</span>
               </div>
             </div>
-
-            {/**
-             * user est le meme que l'auteur du post || roleToken === "admin"
-             */}
-
-            {post.posterId === userData._id ? (
+            
+            {roleToken === "admin" || post.posterId === userData._id ? (
               <div className="update-delete">
                 <i
                   className="fa fa-edit"
@@ -88,25 +116,17 @@ const CardAcutaliter = ({ post }) => {
                 ></i>
                 <DeleteCard post={post._id} />
               </div>
-            ) : null}
-
-            {roleToken === "admin" && post.posterId !== userData._id ? (
-              <div className="update-delete">
-                <DeleteCard post={post._id} />
-              </div>
-            ) : null}
-
-            {/* //////////////////////////// */}
+            ) : null}            
           </div>
 
           <div className="viewPost">
-            {/* text update post!!!!!! */}
+            {/*/// Corp du message et update ///*/}
 
             {isUpdated === false && (
               <>
                 <p>{post.message}</p>
                 {postPicture && <img src={postPicture} alt="post_image" />}              
-              </>              
+              </>          
             )}
 
             {isUpdated === true && (
@@ -123,7 +143,7 @@ const CardAcutaliter = ({ post }) => {
                   </label>
                   <input
                     type="file"
-                    id="file-input"
+                    id={"file-input "+post._id}
                     className="file-input"
                     name="file"
                     accept=".jpg, .jpeg, .png"
@@ -135,35 +155,27 @@ const CardAcutaliter = ({ post }) => {
                 </div>
                 
               </>
-            )}
-
-            {/* //////////////////// */}
-
-            
+            )}                                  
           </div>
-
-          <div className="iconImgAndPost like_comment">
+          {/*/// Icons and comments ////*/ }
+          <div className="iconImgAndPost like_comment" >
             <div className="like">
               <LikeButton post={post} />
             </div>
 
-            <div className="comment">
+            <div className="comment" >
               <span>{post.comments.length}</span>
               <i
                 className="fa-regular fa-comment"
-                onClick={() => {
-                  const flou = document.getElementById("flou");
-                  flou.classList.toggle("flou-appear");
-
-                  setShowComment(!showComment);
-                }}
+                onClick={handleClick}
               ></i>
             </div>
           </div>
-          {showComment && (
+          
+          {  (divComment.classList.value.includes("see")) &&(            
             <>
-              <div className="flou" id="flou"></div>
-              <CommentCard post={post} />
+              <div className="flou" id={idFlou} ></div>              
+              <CommentCard post={post} lastPostCommented={lastPostCommented} setLastPostCommented={setLastPostCommented} />
             </>
           )}
         </>

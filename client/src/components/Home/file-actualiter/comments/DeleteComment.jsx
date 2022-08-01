@@ -1,17 +1,19 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { deleteComments, getPosts } from "../../../../actions/post.action";
+import { deleteComments } from "../../../../actions/post.action";
 import { roleToken } from "../../../../token/Token";
 
-const DeleteComment = ({ postId, comment }) => {
+const DeleteComment = ({ postId, comment, setLastPostCommented }) => {
   const [isAuthor, setIsAuthor] = React.useState(false);
-  const userId = localStorage.getItem("uid");
+  const userId = sessionStorage.getItem("uid");
   const dispatch = useDispatch();
+  const ref = useRef(null);
 
-  const handleDelete = () => {
-    dispatch(deleteComments(postId, comment._id));
-    dispatch(getPosts());
+  const handleDelete = () => {    
+    dispatch(deleteComments(postId, comment._id));    
+    setLastPostCommented(postId);
+    ref.current.previousSibling.focus();        
   };
 
   useEffect(() => {
@@ -28,13 +30,14 @@ const DeleteComment = ({ postId, comment }) => {
       {isAuthor || roleToken === "admin" ? (
         <i
           className="fa fa-trash"
+          ref={ref}
           onClick={() => {
             if (
               window.confirm(
                 "vous êtes sur le point de supprimer ce commentaire"
               )
             )
-              handleDelete();
+            handleDelete();            
           }}
         ></i>
       ) : null}

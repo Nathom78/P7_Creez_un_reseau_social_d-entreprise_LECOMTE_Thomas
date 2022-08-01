@@ -6,12 +6,14 @@ import { getPosts } from "../../../actions/post.action";
 import { isEmpty } from "../../utils/Utils";
 import Card from "./CardPost/Card.File.Acutaliter";
 
+
+
 const Post = () => {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.postReducer);
-   
+  const posts = useSelector(state => state.postReducer);  
+  const [commentArray , setPostCommentOn] = React.useState([]);
   useEffect( () => { 
-    dispatch(getPosts());    
+    dispatch(getPosts());        
   }, [dispatch, posts.length]);  
 
     return (
@@ -19,7 +21,7 @@ const Post = () => {
       <main className="mainContainer__post">
         {!isEmpty(posts[0]) &&
           posts.map((post) => {
-            return <Card post={post} key={post._id + "card"} />;
+            return <Card post={post} key={post._id + "card"} commentArray={commentArray} setPostCommentOn={setPostCommentOn} />;
           })}
         <br />
       </main>

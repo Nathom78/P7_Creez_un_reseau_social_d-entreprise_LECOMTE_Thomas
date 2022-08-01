@@ -1,7 +1,4 @@
 import axios from "axios";
-
-//post
-
 export const GET_POSTS = "GET_POSTS";
 export const ADD_POST = "ADD_POST";
 export const LIKE_POST = "LIKE_POST";
@@ -10,7 +7,6 @@ export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
 export const RESET_POSTS = "RESET_POSTS";
 
-// \\\\\\\\\\\\\\\\\\\\\\\\
 export const ADD_COMMENT = "ADD_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 
@@ -18,7 +14,7 @@ const apiUrl = "http://localhost:3000/api/post";
 const authAxios = axios.create({
   baseURL: apiUrl,
   headers: {
-    Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
   },
 });
 
@@ -44,8 +40,8 @@ export const addPost = (data, userId) => {
           dispatch({            
           type: ADD_POST,
           payload: res.data,
-          });
-       //;
+          
+          });        
       })
       .catch((err) => console.log(err));
   };
@@ -55,7 +51,7 @@ export const likePost = (postId, userId) => {
   return (dispatch) => {
     authAxios
       .put(`${apiUrl}/like-post/${postId}`, { userId, like: 1 })
-      .then((res) => {
+      .then(() => {
         dispatch({
           type: LIKE_POST,
           payload: { postId, userId },
@@ -69,7 +65,7 @@ export const unlikePost = (postId, userId) => {
   return (dispatch) => {
     authAxios
       .put(`${apiUrl}/unlike-post/${postId}`, { userId, like: 0 })
-      .then((res) => {
+      .then(() => {
         dispatch({
           type: UNLIKE_POST,
           payload: { postId, userId },
@@ -81,18 +77,17 @@ export const unlikePost = (postId, userId) => {
 
 export const updatePost = (postId, message, file) => {
   return (dispatch) => {
-    console.log("file postaction "+file);
     const data = new FormData();    
     data.append("message", message);
     if (file) data.append("file", file);
-    console.log("data "+data);
+    
     authAxios      
       .put(`${apiUrl}/${postId}`, data )
-      .then((res) => {
-        console.log(res.data);
+      .then((res) => {        
+        const response = res.data;
         dispatch({
           type: UPDATE_POST,
-          payload: { postId, message, file },
+          payload: { postId, message, response },
         });
       })
       .catch((err) => console.log(err));
@@ -123,8 +118,8 @@ export const addComment = (postId, commenterId, text, commenterName) => {
       })
       .then((res) => {
         dispatch({
-          type: ADD_COMMENT,
-          payload: { postId },
+        type: ADD_COMMENT,
+        payload: res.data, 
         });
       })
       .catch((err) => console.log(err));
@@ -140,8 +135,12 @@ export const deleteComments = (postId, commentId) => {
         commentId: commentId,
       },
     })
-      .then((res) => {
+      .then(() => {
         console.log("comment deleted");
+        dispatch({
+          type: DELETE_COMMENT,
+          payload: { postId, commentId },
+          });
       })
       .catch((err) => console.log(err));
   };

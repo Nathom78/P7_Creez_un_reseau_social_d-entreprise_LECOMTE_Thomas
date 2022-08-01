@@ -2,12 +2,12 @@ require("dotenv").config( { path: "./config/.env" } );
 const express = require("express");
 const app = express();
 
-const cookieParser = require('cookie-parser');
+//const cookieParser = require('cookie-parser');
 const cors = require("cors");
 const path = require("path");
 
 
-app.use(cookieParser(process.env.COOKIE_SIGN));
+//app.use(cookieParser(process.env.COOKIE_SIGN));
 
 // Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help!
 

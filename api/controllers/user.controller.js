@@ -33,7 +33,7 @@ exports.signup = (req, res) => {
 
 exports.login = (req, res, next) => {
   
-  //const cryptedEmail = cryptoJs.AES.encrypt(req.body.email, process.env.EMAIL_ENCRYPTION_KEY).toString();
+  
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (!user) {
@@ -62,8 +62,8 @@ exports.login = (req, res, next) => {
 };
 
 exports.logout = (req, res, next) => {
-  const removeToken = localStorage.removeItem("token");
-  const removeUserId = localStorage.removeItem("userId");
+  const removeToken = sessionStorage.removeItem("token");
+  const removeUserId = sessionStorage.removeItem("userId");
   if (removeToken && removeUserId) {
     res.status(200).json({ message: "Déconnexion réussie !" });
   } else {

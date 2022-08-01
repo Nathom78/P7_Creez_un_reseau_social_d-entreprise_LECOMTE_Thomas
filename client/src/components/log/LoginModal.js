@@ -23,8 +23,8 @@ const LoginModal = () => {
       .then((res) => {
         const userId = res.data.userId;
         const tonken = res.data.token;
-        localStorage.setItem("jwt", tonken);
-        localStorage.setItem("uid", userId);
+        sessionStorage.setItem("jwt", tonken);
+        sessionStorage.setItem("uid", userId);
         window.location.reload();
       })
       .catch((err) => {

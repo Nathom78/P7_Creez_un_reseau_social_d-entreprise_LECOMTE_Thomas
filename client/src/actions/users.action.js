@@ -6,7 +6,7 @@ const apiUrl = "http://localhost:3000/api/user";
 const authAxios = axios.create({
   baseURL: apiUrl,
   headers:{
-    Authorization: `Bearer ${localStorage.getItem("jwt")}`
+    Authorization: `Bearer ${sessionStorage.getItem("jwt")}`
   }
 })
 

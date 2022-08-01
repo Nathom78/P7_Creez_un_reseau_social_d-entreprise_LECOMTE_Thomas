@@ -1,9 +1,9 @@
 const Post = require("../models/posts.model");
-const userModel = require("../models/user.model");
+//const userModel = require("../models/user.model");
 const fs = require('fs');
 
 exports.createPost = (req, res) => {
-  if (req.file) { console.log(req.file); 
+  if (req.file) {  
     const post = new Post({
       ...req.body,
       posterId: req.body.posterId,
@@ -13,7 +13,7 @@ exports.createPost = (req, res) => {
     });
     post
       .save()
-      .then((post) => res.json(post))
+      .then((post) => res.status(201).json(post))
       .catch((err) => res.status(400).json("Error: " + err));
   } else {
     const post = new Post({
@@ -23,15 +23,13 @@ exports.createPost = (req, res) => {
     });
     post
       .save()
-      .then((post) => res.status(200).json(post))
+      .then((post) => res.status(201).json(post))
       .catch((err) => res.status(400).json("Error: " + err));
   }
 };
 
 exports.updatePost = (req, res) => {
-  // suprimer l'ancienne image si on la modifie
-  console.log(req.body);
-  console.log(req.file);
+  // suprimer l'ancienne image si on la modifie  
   if (req.file)
     {     
       Post.findOne({ _id: req.params.id })
@@ -52,8 +50,8 @@ exports.updatePost = (req, res) => {
   { ...req.body };
 
   Post.updateOne({ _id: req.params.id }, { ...postObject, _id: req.params.id })
-  .then((post) => res.status(200).json(post))
-  .catch(err => res.status(400).json("Error: " + err));     
+  .then(() => res.status(200).json(postObject.imageUrl))
+  .catch(err => res.status(400).json("Error: " + err));    
 };
 
 exports.deletePost = async (req, res) => {
@@ -80,60 +78,10 @@ exports.deletePost = async (req, res) => {
 
 exports.getPosts = async (req, res) => {
   Post.find()
-    .sort({ createdAt: -1 })
-    .then((posts) => res.json(posts))
+    .sort({ createdAt: -1 }) // du plus récent au plus ancien 
+    .then((posts) => res.status(200).json(posts))
     .catch((err) => res.status(400).json("Error: " + err));
 };
-
-// ^\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-exports.likePost = async (req, res) => {
-  Post.findByIdAndUpdate(
-    req.params.id,
-    {
-      $push: { likes: req.params.id },
-    },
-    { new: true }
-  )
-    .then((post) => res.json(post))
-    .catch((err) => res.status(400).json("Error: " + err));
-
-  userModel
-    .findByIdAndUpdate(
-      req.body.userId,
-      {
-        $push: { likedPosts: req.params.id },
-      },
-      { new: true }
-    )
-    .then((user) => res.json(user))
-    .catch((err) => res.status(400).json("Error: " + err));
-};
-
-exports.unlikePost = async (req, res) => {
-  Post.findByIdAndUpdate(
-    req.params.id,
-    {
-      $pull: { likes: req.params.id },
-    },
-    { new: true }
-  )
-    .then((post) => res.json(post))
-    .catch((err) => res.status(400).json("Error: " + err));
-
-  userModel
-    .findByIdAndUpdate(
-      req.body.userId,
-      {
-        $pull: { likedPosts: req.params.id },
-      },
-      { new: true }
-    )
-    .then((user) => res.json(user))
-    .catch((err) => res.status(400).json("Error: " + err));
-};
-
-// ^\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 exports.commentPost = async (req, res) => {
   Post.findByIdAndUpdate(
@@ -148,7 +96,7 @@ exports.commentPost = async (req, res) => {
     },
     { new: true }
   )
-    .then((post) => res.json(post))
+    .then((post) => res.status(200).json(post))
     .catch((err) => res.status(400).json("Error: " + err));
 };
 
@@ -158,6 +106,6 @@ exports.deleteComment = (req, res) => {
     { $pull: { comments: { _id: req.body.commentId } } },
     { new: true }
   )
-    .then((post) => res.json(post))
+    .then(() => res.status(200).json({ message: 'comment deleted' }))
     .catch((err) => res.status(400).json("Error: " + err));
 };

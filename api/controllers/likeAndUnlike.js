@@ -2,9 +2,9 @@ const Post = require("../models/posts.model");
 
 exports.likePost = (req, res, next) => {
   Post.findOne({ _id: req.params.id }).then((post) => {
-    // res.status(200).json({post});
+    
     if (!post.usersLiked.includes(req.body.userId) && req.body.like === 1) {
-      // misajour de la db
+      
       Post.updateOne(
         { _id: req.params.id },
         {
@@ -24,11 +24,10 @@ exports.likePost = (req, res, next) => {
           $pull: { usersLiked: req.body.userId },
         }
       )
-        .then(() => res.status(201).json({ message: "Like supprimé !" }))
+        .then(() => res.status(200).json({ message: "Like supprimé !" }))
         .catch((error) => res.status(400).json({ error }));
     }
 
-    //     //? ^^^^^^^^^^^^^^^^^^^^^^^ dislike ^^^^^^^^^^^^^^^^^^^^^^^^
-  });
-  //   .catch((error) => res.status(400).json({ error }));
+    
+  });  
 };
