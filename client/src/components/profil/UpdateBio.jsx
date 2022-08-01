@@ -11,18 +11,22 @@ const UpdateBio = () => {
   const [bio, setMessage] = React.useState("");
 
   const userData = useSelector((state) => state.userReducer);
-  const dispatch = useDispatch();
-  console.log(userData);
+  const dispatch = useDispatch();  
   const handleSubmit = (e) => {
     e.preventDefault();
     const bioError = document.getElementById("bioError");
 
-    if (bio.length === null || bio.length === 0)
+    if (bio.length === null || bio.length === 0) {
+      if (userData.bio !== "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam impedit aliquam consequuntur odio amet eum accusamus explicabo corporis, est magni. " && userData.bio.length >= 5) {
+        setMessage(userData.bio);
+        return (bioError.innerHTML = "<br>Veuillez confirmer aucun changement")
+      }
+      else      
       return (
         (bioError.innerHTML = "Veuillez entrer votre biographie"),
         (bioError.style.color = "red")
       );
-
+    }
     if (bio.length < 5)
       return (
         (bioError.innerHTML =
@@ -72,7 +76,7 @@ const UpdateBio = () => {
                   value={bio}
                   placeholder={userData.bio}
                   onChange={(e) => setMessage(e.target.value)}
-                ></textarea>
+                ></textarea>                
                 <span id="bioError" className="error"></span>
               </div>
               <br />
