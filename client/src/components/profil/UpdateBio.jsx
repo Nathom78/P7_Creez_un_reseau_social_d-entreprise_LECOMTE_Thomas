@@ -12,7 +12,7 @@ const UpdateBio = () => {
 
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
-
+  console.log(userData);
   const handleSubmit = (e) => {
     e.preventDefault();
     const bioError = document.getElementById("bioError");
@@ -70,7 +70,7 @@ const UpdateBio = () => {
                   wrap="soft"
                   className="bio"
                   value={bio}
-                  placeholder="Votre biographie"
+                  placeholder={userData.bio}
                   onChange={(e) => setMessage(e.target.value)}
                 ></textarea>
                 <span id="bioError" className="error"></span>

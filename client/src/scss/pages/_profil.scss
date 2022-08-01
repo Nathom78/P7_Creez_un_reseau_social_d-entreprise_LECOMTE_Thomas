@@ -75,7 +75,7 @@
             font-size: 14px;
             color: #b5b5b5b5;
             background-color: #fff;
-
+            text-align: center;
             &:focus {
                 outline: none;
             }
@@ -219,9 +219,9 @@
         padding-bottom: 20px;
     }
 
-    // .desappear {
-    //     display: none;
-    // }
+    .desappear {
+    display: none;
+    }
 
     .appear {
         display: inline-block;
