@@ -33,10 +33,10 @@ ou depuis  [ce repository](https://github.com/Nathom78/P7_Creez_un_reseau_social
 <br>
 ## 2. Installation de l'API ####
 <br>
-Depuis le dossier api :<br>
+Depuis le dossier "api" :<br>
 Tapez la commande suivante : <pre><code> npm install </code></pre>
 
-Créez un dossier `medias` dans api.
+Créez un dossier `api\medias` dans api. Les images y seront stocké  (déja créer)
 
 Dans le dossier `api\config` créer un fichier `.env` dans lequel seront renseignés vos identifiants de connexion à MongoDB et les différentes chaînes de cryptage :
 <pre><code>
@@ -51,7 +51,7 @@ DB_MDP="mot de passe de connexion à la base de données"
 DB_ADDRESS="adresse de la base de donné" ex: @cluster0.afknvvw.mongodb.net/nom_de_la_database?retryWrites=true&w=majority
 
 # Token lifetime (milliseconds)
-TOKEN_TIME_LIFE=3600
+TOKEN_TIME_LIFE=3600000
 
 </code></pre>
 

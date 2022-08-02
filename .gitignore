@@ -1,6 +1,8 @@
 api/node_modules
 api/.env
-api/medias/*.*
+/config/.env
+client/node_modules
+# api/medias/*.*
 
 
 # Logs
