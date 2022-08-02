@@ -1,14 +1,12 @@
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const cryptoJs = require('crypto-js');
 require("dotenv").config({ path: "./config/.env" });
 const fs = require("fs");
 
 // Authentication middleware
 
-exports.signup = (req, res) => {
-  const cryptedEmail = cryptoJs.AES.encrypt(req.body.email, process.env.EMAIL_ENCRYPTION_KEY).toString();
+exports.signup = (req, res) => {  
   bcrypt
     .hash(req.body.password, 10)
     .then((hash) => {

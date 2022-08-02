@@ -1,6 +1,6 @@
 api/node_modules
 api/.env
-api/medias
+api/medias/*.*
 
 
 # Logs

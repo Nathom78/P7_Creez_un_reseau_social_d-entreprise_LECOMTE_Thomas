@@ -1,6 +1,6 @@
 # P7_Creez_un_reseau_social_d’entreprise
 
-![Ohmyfood](./client/public/icon-left-font-monochrome-black.svg)
+![logo](./client/public/icon-left-font-monochrome-black.svg)
 
 
 Vous pouvez retrouver le [brief complet ici](https://course.oc-static.com/projects/DWJ_FR_P7/Cahier+charges+Groupomania.pdf)
@@ -9,7 +9,7 @@ Vous pouvez retrouver le [brief complet ici](https://course.oc-static.com/projec
 
 Le projet consiste à construire un réseau social interne pour les employés de Groupomania. Le but de cet outil est de faciliter les interactions entre collègues. Le département RH de Groupomania a imaginé plusieurs fonctionnalités pour favoriser les échanges entre collègues.
 
-![screenshot du site](./client/public/Capture%20d%E2%80%99%C3%A9cran%202022-07-01%20181832.png)
+![screenshot du site](./client/public/Capture_d’écran_2022-08-02_104343.jpg)
 
 # Objectifs
 
@@ -19,7 +19,7 @@ Le projet consiste à construire un réseau social interne pour les employés de
 
 ## INSTALLATION ##
 
-Créer un dossier vide. Il contiendra le code complet du projet, regroupé dans deux dossiers : un dossier "api" et un dossier "client".
+Créer un dossier vide. Il contiendra le code complet du projet, regroupé dans deux dossiers : un dossier `api` et un dossier `client`.
 
 ## 1. Installation du site ####
 <br>
@@ -27,16 +27,16 @@ Ouvrez un terminal:
 <br>
 Depuis le dossier précédement créé, clonez le repository de l'application groupomania avec la commande :
 <br>
-<pre><code>git clone https://github.com/Nathom78/P7_Creez_un_reseau_social_d-entreprise_LECOMTE_Thomas.git f</code></pre>
+<pre><code>git clone https://github.com/Nathom78/P7_Creez_un_reseau_social_d-entreprise_LECOMTE_Thomas.git</code></pre>
 
 ou depuis  [ce repository](https://github.com/Nathom78/P7_Creez_un_reseau_social_d-entreprise_LECOMTE_Thomas.git)
 <br>
 ## 2. Installation de l'API ####
 <br>
-Depuis le dossier Api :<br>
+Depuis le dossier api :<br>
 Tapez la commande suivante : <pre><code> npm install </code></pre>
 
-Créez un dossier `medias`.
+Créez un dossier `medias` dans api.
 
 Dans le dossier `api\config` créer un fichier `.env` dans lequel seront renseignés vos identifiants de connexion à MongoDB et les différentes chaînes de cryptage :
 <pre><code>

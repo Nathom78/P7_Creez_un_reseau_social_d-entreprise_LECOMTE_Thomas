@@ -19,9 +19,7 @@
   "homepage": "https://github.com/Nathom78/P7_Creez_un_reseau_social_d-entreprise_LECOMTE_Thomas#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "crypto-js": "^4.1.1",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "helmet": "^5.1.0",
