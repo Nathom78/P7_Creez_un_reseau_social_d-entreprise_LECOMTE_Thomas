@@ -1,3 +1,5 @@
+
+
 .main_container {
     height: 100%;
 
@@ -17,7 +19,7 @@
         h2.name{
             margin-bottom: 20px;
             text-align: center;
-            color: rgba(190, 18, 60, 1);
+            color: $Primaire-color ;
         }
         h3{
             font-size: 19px;
@@ -32,7 +34,7 @@
         .divContainer {
             width: 98%;
             margin: 10px auto;
-            background-color: #fff;
+            background-color: $Secondaire-color ;
             padding: 20px;
             border-radius: 15px;
             @media (max-width: 768px) {
@@ -50,7 +52,7 @@
                 height: 200px;
                 border-radius: 50%;
                 margin-bottom: 15px;
-                border: 1px solid rgba(225, 29, 72, 1);
+                border: 1px solid $Tertiaire-color;
             }
         }
     }
@@ -78,23 +80,17 @@
             margin-top: 15px;
             padding-top: 6px;
             padding-bottom: 9px;
-            border-top: 1px solid #c0c0c0;
+            border-top: 1px solid $Tertiaire-color;
         }
 
         i {
             font-size: 25px;
-            color: rgba(156, 163, 175, 12);
+            color: $Tertiaire-color;
             margin-top: 10px;
             cursor: pointer;
         }
         
     }
-
-
-
-   
-
-
 
     .asideHome {
         flex: 0.5;
@@ -105,7 +101,7 @@
         }
 
         h2 {
-            color: rgb(225, 29, 72);
+            color: $Primaire-color;
             font-weight: bold;
             margin-top: 20px;
             margin-bottom: 20px;
@@ -114,7 +110,7 @@
         .divContainer {
             width: 98%;
             margin: 10px auto;
-            background-color: #fff;
+            background-color: $Secondaire-color;
             padding: 20px;
             border-radius: 15px;
             text-align: center;
@@ -154,7 +150,7 @@
                 width: 60px;
                 height: 60px;
                 border-radius: 50%;
-                border: 2px solid rgb(225, 29, 72);
+                border: 2px solid $Tertiaire-color;
                 text-align: center;
                 padding: 1px;
             }
@@ -162,12 +158,12 @@
             .name {
                 // margin-top: 5px;
                 font-size: 17px;
-                color: #000;
+                color: $Tertiaire-color;
                 font-weight: bold;
             }
             i{
                 // font-size: 20px;
-                color: rgb(225, 29, 72);
+                color: $Primaire-color;
                 // margin-top: 5px;
             }
         }

@@ -1,5 +1,7 @@
-@forward "./auth";
-@forward "./home";
-@forward "./my-post";
-@forward "./profil";
-@forward "./post";
+@import "../colors";
+@import "./auth";
+@import "./home";
+@import "./my-post";
+@import "./profil";
+@import "./post";
+

@@ -1,9 +1,11 @@
+
+
 .postContainer {
     border-radius: 15px;
     margin-top: 20px;
     padding: 10px;
-    background-color: #fff;
-    color: #000;
+    background-color: $Secondaire-color;
+    color: $Tertiaire-color;
     font-size: 17px;
     width: 70%;
     margin: 10px auto;
@@ -24,7 +26,7 @@
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        border: 2px solid rgb(225, 29, 72);
+        border: 2px solid $Primaire-color;
     }
 
     .img-name-time {
@@ -44,16 +46,17 @@
 
         i.fa.fa-edit {
             margin-right: 30px;
-            color: rgba(156, 163, 175, 12);
+            color: $Tertiaire-color;
 
             &:hover {
-                color: rgb(105, 111, 122);
+                color: $Primaire-color;
             }
         }
 
         i.fa.fa-trash {
+            color: $Tertiaire-color;
             &:hover {
-                color: rgb(105, 111, 122);
+                color: $Primaire-color;
             }
         }
     }
@@ -61,10 +64,10 @@
     .textarea {
         height: 70px;
         border-radius: 5px;
-        border: 1px solid #c0c0c0;
+        border: 1px solid $Secondaire-color;
         padding: 10px;
         margin-top: 10px;
-        color: rgb(126 127 129);
+        color: $Tertiaire-color;
         font-size: 17px;
 
         &:focus {
@@ -76,9 +79,9 @@
 
     .comment-card {
         width: 100%;
-        background-color: #fff;
+        background-color: $Secondaire-color;
         display: none;
-        border-top: 2px solid #c0c0c0;
+        border-top: 2px solid $Tertiaire-color;
         padding: 20px 0;
         display: flex;
         flex-direction: column;
@@ -86,21 +89,21 @@
     }
 
     .each-user-comment {
-        border: 1px solid #c0c0c0;
-        border-radius: 30px 30px 0 30px;
+        border: 3px solid $Tertiaire-color;
+        border-radius: 30px 20px 0px 30px;
         margin-top: 30px;
     }
 
     .is-author {
-        background-color: rgb(243, 244, 246);
-        color: #333;
+        background-color: $Secondaire-color;
+        color: $Tertiaire-color ;
 
         i.fa.fa-trash {
-            color: #c1bfbf;
+            color: $Tertiaire-color;
         }
 
         span.author {
-            color: #333;
+            color: $Tertiaire-color;
             font-style: italic;
         }
     }
@@ -110,6 +113,7 @@
         width: 95%;
         font-size: 14px;
         border-radius: 15px 15px 0 15px;
+        
     }
 
     
@@ -119,10 +123,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-
+        color: $Tertiaire-color; 
+        background-color: $Secondaire-color ;
+        border-color: $Tertiaire-color;
+        border-radius: 30px;
+        
         span {
             margin-right: 14px;
-            color: rgb(126 127 129);
+            color: $Tertiaire-color;
             font-style: italic;
         }
     }
@@ -149,7 +157,7 @@
             font-size: 20px;
 
             &:hover {
-                color: rgb(195, 22, 22);
+                color: $Primaire-color;
             }
         }
     }
@@ -167,7 +175,7 @@
             width: 100%;
             height: 300px;
             border-radius: 15px;
-            border: 2px solid rgba(243, 244, 246, 1);
+            border: 2px solid $Tertiaire-color ;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -182,7 +190,7 @@
 
             label i {
                 font-size: 25px;
-                color: rgba(225, 29, 72, 1);
+                color: $Primaire-color;
                 margin-top: 10px;
                 cursor: pointer;                
             }        
@@ -195,8 +203,8 @@
         }
 
         .btn-updateItem {
-            background-color: rgba(156, 163, 175, 12);
-            color: #fff;
+            background-color: $Tertiaire-color;
+            color: $Secondaire-color;
             border: none;
             border-radius: 5px;
             padding: 10px;
@@ -204,8 +212,8 @@
             cursor: pointer;
     
             &:hover {
-                background-color: rgb(105, 111, 122);
-                color: #fff;
+                background-color: $Tertiaire-color;
+                color: $Secondaire-color;
                 border: none;
                 border-radius: 5px;
                 padding: 10px;
@@ -236,27 +244,30 @@
 
     i {
         font-size: 25px;
-        color: rgba(156, 163, 175, 12);
+        color: $Primaire-color;
         margin-top: 10px;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
     }
 
     .fa-regular.fa-heart:hover {
-        color: rgb(225, 29, 72);
+        color: $Primaire-color;
     }
 
     .fa-solid.fa-heart {
-        color: rgb(225, 29, 72);
+        color: $Primaire-color;
     }
 
     .textarea {
         width: 100%;
         height: 70px;
         border-radius: 5px;
-        border: 1px solid #c0c0c0;
+        border: 1px solid $Tertiaire-color;
         padding: 10px;
         margin-top: 10px;
+        color: $Tertiaire-color;
+        background-color: $Secondaire-color;
+
 
         &:focus {
             outline: none;

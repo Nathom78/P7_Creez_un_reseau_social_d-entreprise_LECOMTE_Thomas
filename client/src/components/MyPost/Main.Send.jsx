@@ -90,7 +90,7 @@ const MainSend = () => {
               <button onClick={handlePost} disabled>
                 <i
                   className="fa-solid fa-paper-plane"
-                  style={{ color: "grey" }}
+                  //style={{ color: "grey" }}
                 ></i>
               </button>
             )}

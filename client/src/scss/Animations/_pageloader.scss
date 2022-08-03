@@ -1,6 +1,7 @@
+@import "../colors.scss";
 .loader {
   position: fixed;
-  background: rgba(243, 244, 246, 1);
+  background: $Secondaire-color;
   height: 100vh;
   inset: 0;
   z-index: 1;

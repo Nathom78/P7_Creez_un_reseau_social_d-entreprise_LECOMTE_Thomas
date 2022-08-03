@@ -60,6 +60,7 @@ const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
     UseFlou(post._id);    
     //Appel pour forcer le rendu du composant
     miseAJour();
+    console.log(commentArray);
   };
 
   useEffect(() => {
@@ -67,8 +68,12 @@ const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
   }, [usersData]);
 
   useEffect(() => { /* Pour remettre les commentaires ouvert aprés un render juste aprés un ajout d'un commentaire ou une supression */
-    commentArray.forEach(el => document.getElementById("post"+el).classList.toggle("see"));
+    commentArray.forEach(el => {
+      let doc = document.getElementById("post"+el);
+      if (!doc.classList.value.includes("see")) doc.classList.toggle("see");
+    })   
   },[]);
+  
   useEffect(() => miseAJour(),[]);
   
   return (

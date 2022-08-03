@@ -3,8 +3,8 @@ header.headerAuth{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
-    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, .08);
+    background-color: $Primaire-color;
+    box-shadow: 0 0.4rem 1rem $Tertiaire-color ;
 }
 
 .container{
@@ -40,8 +40,8 @@ main.mainAuth{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: rgb(190 18 60 / 77%);
-    color: white;
+    background: $Primaire-color;
+    color: $Secondaire-color;
     border-radius: 30px;
     padding: 60px;
     white-space: nowrap;
@@ -63,13 +63,13 @@ main.mainAuth{
                 padding: 10px 15px;
                 border-radius: 20px;
                 &:hover{
-                    background: #fff;
-                    color: rgb(190 18 60 / 92%);
+                    background: $Tertiaire-color;
+                    color: $Secondaire-color;
                 }
             }
             .nav-active{
-                color: rgb(190 18 60 / 92%);
-                background: #fff;
+                color: $Tertiaire-color;
+                background: $Secondaire-color;
                 &::after{
                     width: 100%;
                     opacity: 1;
@@ -89,7 +89,7 @@ main.mainAuth{
         width: 100%;
         padding: 10px;
         border-radius: 10px;
-        border: 1px solid rgb(190 18 60 / 92%);
+        border: 1px solid $Tertiaire-color;
         margin-bottom: 10px;
         font-size: 17px;
         &:focus{
@@ -101,31 +101,31 @@ main.mainAuth{
         margin: auto;
         padding: 12px 10px;
         border-radius: 15px;
-        color: rgb(190 18 60 / 92%);
+        color: $Tertiaire-color;
         text-align: center;
         font-weight: bold;
-        background: #fff;
+        background: $Secondaire-color;
         font-size: 18px;
         border: none;
         cursor: pointer;
         transition: all 0.1s linear;
         &:hover{
-            background-color: rgb(190 18 60 / 92%);
-            color: #fff;
+            background-color: $Tertiaire-color;
+            color: $Secondaire-color;
         }
     }
     .name.error{
-        color: #c21826db;
+        color: $Tertiaire-color;
         margin-top: -1px;
         font-weight: bold;
     }
     .email.error{
-        color: #c21826db;
+        color: $Tertiaire-color;
         margin-top: -1px;
         font-weight: bold;
     }
     .password.error{
-        color: #c21826db;
+        color: $Tertiaire-color;
         margin-top: -1px;
         font-weight: bold;
     }

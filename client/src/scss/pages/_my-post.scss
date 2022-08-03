@@ -1,3 +1,5 @@
+
+
 .mainContainer__100vh {
     main.mainContainer__new_post {
         width: 50%;
@@ -16,7 +18,7 @@
 
         // background: #000;
         h1 {
-            color: rgb(225, 29, 72);
+            color: $Tertiaire-color;
             font-size: 23px;
             font-weight: bold;
             margin-top: 20px;
@@ -25,7 +27,7 @@
         }
 
         .myPost {
-            background-color: #fff;
+            background-color: $Primaire-color;
             border-radius: 15px;
             margin-top: 20px;
             padding: 10px;
@@ -38,7 +40,7 @@
         .message {
             width: 90%;
             height: 120px;
-            border: 1px solid rgba(166, 166, 166, 0.955);
+            border: 1px solid $Tertiaire-color;
             border-radius: 5px;
             margin-top: 10px;
             padding: 5px;
@@ -58,7 +60,7 @@
             }
 
             &::-webkit-scrollbar-thumb {
-                background: rgba(225, 29, 72, 1);
+                background: $Primaire-color;
                 border-radius: 20px;
                 border: 1px solid #f1f1f1;
             }
@@ -108,9 +110,14 @@
 
         i {
                 font-size: 25px;
-                color: rgba(225, 29, 72, 1);
+                color: $Secondaire-color;
                 margin-top: 10px;
                 cursor: pointer;
+
+                &:hover {
+                    color: $Tertiaire-color;
+                }
+
             }
 
         .iconImgAndPost {
@@ -120,6 +127,11 @@
             gap: 100px;
             padding-top: 20px;
             padding-bottom: 20px;                        
+        }
+
+        textarea {
+            background-color: $Secondaire-color;
+            color: $Tertiaire-color;
         }
     }
 

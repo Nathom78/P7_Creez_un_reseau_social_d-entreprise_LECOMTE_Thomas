@@ -1,3 +1,4 @@
+@import "../colors";
 * {
     padding: 0;
     margin: 0;
@@ -19,10 +20,10 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     position: relative;
-    color: #333;
-    background-color: #fff;
+    color: $Tertiaire-color;
+    background-color: $Primaire-color;
     overflow-x: hidden;
-    background-color: rgba(243, 244, 246, 1);
+    /*background-color: rgba(243, 244, 246, 1);*/
     overflow: scroll;
     &::-webkit-scrollbar {
         display: none;
@@ -31,7 +32,7 @@ body {
 
 
 .background-login{
-    background-color: #fff;
+    background-color: $Secondaire-color;
 }
 
 .mainContainer__100vh {

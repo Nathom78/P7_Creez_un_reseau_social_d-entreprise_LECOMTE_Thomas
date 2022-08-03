@@ -16,7 +16,7 @@
     h1 {
         span {
             font-weight: bold;
-            color: rgb(225, 29, 72);
+            color: $Secondaire-color ;
         }
     }
 
@@ -34,7 +34,7 @@
 
 
     .my-profil {
-        background-color: #fff;
+        background-color: $Primaire-color ;
         border-radius: 15px;
         margin-top: 20px;
         padding: 17px;
@@ -73,8 +73,8 @@
             border-radius: 5px;
             padding: 5px;
             font-size: 14px;
-            color: #b5b5b5b5;
-            background-color: #fff;
+            color: $Tertiaire-color ;
+            background-color: $Secondaire-color;
             text-align: center;
             &:focus {
                 outline: none;
@@ -84,7 +84,7 @@
 
         i {
             font-size: 33px;
-            color: rgba(225, 29, 72, 1);
+            color: $Secondaire-color;
             margin-top: 10px;
             cursor: pointer;
         }
@@ -97,8 +97,8 @@
 
         .Upload {
             padding: 10px 20px;
-            background-color: rgb(225, 29, 72);
-            color: #fff;
+            background-color: $Secondaire-color;
+            color: $Tertiaire-color;
             border-radius: 15px;
             cursor: pointer;
             font-size: 17px;
@@ -107,7 +107,8 @@
             border: none;
 
             &:hover {
-                background-color: rgb(190, 18, 60);
+                background-color: $Tertiaire-color;
+                color: $Secondaire-color
             }
 
         }
@@ -119,7 +120,7 @@
 
     .containerImg {
         img {
-            border: 1px solid rgba(225, 29, 72, 1);
+            border: 1px solid $Secondaire-color;
             width: 200px;
             height: 200px;
             border-radius: 50%;
@@ -136,7 +137,7 @@
     }
 
     h3.time_of_inscription {
-        color: gray;
+        color: $Tertiaire-color;
 
         span {
             font-weight: bold;
@@ -156,7 +157,7 @@
         .bio {
             width: 90%;
             height: 120px;
-            border: 1px solid rgba(166, 166, 166, 0.955);
+            border: 1px solid $Tertiaire-color;
             border-radius: 5px;
             margin-top: 10px;
             padding: 5px;
@@ -164,7 +165,6 @@
 
             &:focus {
                 outline: none;
-
             }
 
             &::-webkit-scrollbar {
@@ -172,11 +172,11 @@
             }
 
             &::-webkit-scrollbar-track {
-                background: #f1f1f1;
+                background: $Secondaire-color;
             }
 
             &::-webkit-scrollbar-thumb {
-                background: rgba(225, 29, 72, 1);
+                background: $Primaire-color ;
                 border-radius: 20px;
                 border: 1px solid #f1f1f1;
             }
@@ -188,7 +188,7 @@
 
 
     button {
-        background-color: rgb(225, 29, 72);
+        background-color: $Secondaire-color;
         width: 150px;
         height: 40px;
         border: none;
@@ -196,17 +196,25 @@
         font-weight: bold;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
+        i {
+            font-size: 20px;
+            color: $Tertiaire-color;
+            cursor: pointer;
+        }
 
         &:hover {
-            background-color: rgb(190, 18, 60);
+            
+            background-color: $Tertiaire-color;
+
+            i {
+                color: $Secondaire-color; 
+            }
         }
-    }
+       
+        
+    
 
-    i {
-        font-size: 20px;
-        color: #fff;
-        cursor: pointer;
-
+    
     }
 
 

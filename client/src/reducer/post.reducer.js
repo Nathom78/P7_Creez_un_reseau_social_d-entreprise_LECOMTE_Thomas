@@ -59,7 +59,6 @@ export default function postReducer(state = initialState, action) {
       {
         const lastComments = action.payload.comments[(action.payload.comments.length -1)];
         const postToModified = state.find(post => post._id === action.payload._id) 
-        console.log(postToModified);
         return {
         ...postToModified,
         comments: [...postToModified.comments, lastComments]
