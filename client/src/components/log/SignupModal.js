@@ -1,14 +1,16 @@
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignupModal = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [name, setName] = React.useState("");
-
+  let navigate = useNavigate();
+  
   const handleSignup = (e) => {
     e.preventDefault();
-
+    
     const nameError = document.querySelector(".name.error");
     const emailError = document.querySelector(".email.error");
 
@@ -37,7 +39,7 @@ const SignupModal = () => {
             const tonken = res.data.token;
             sessionStorage.setItem("jwt", tonken);
             sessionStorage.setItem("uid", userId);
-            window.location = "/home";
+            navigate("/home", { replace: true});
           })
           .catch((err) => {
             console.log(err);

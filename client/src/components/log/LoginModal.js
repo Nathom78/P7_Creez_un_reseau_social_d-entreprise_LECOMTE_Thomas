@@ -1,13 +1,16 @@
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LoginModal = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  let navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
+    
     const emailError = document.querySelector(".email.error");
     const passwordError = document.querySelector(".password.error");
 
@@ -25,6 +28,7 @@ const LoginModal = () => {
         const tonken = res.data.token;
         sessionStorage.setItem("jwt", tonken);
         sessionStorage.setItem("uid", userId);
+        navigate("/home", { replace: true});
         window.location.reload();
       })
       .catch((err) => {

@@ -7,7 +7,7 @@ const Logout = () => {
   const logout = () => {
     sessionStorage.removeItem("uid");
     sessionStorage.removeItem("jwt");
-    navigate("/home");
+    navigate("/home",{ replace: true });
     window.location.reload();
   };
   return (
