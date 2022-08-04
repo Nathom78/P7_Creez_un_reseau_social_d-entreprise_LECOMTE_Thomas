@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import background from "../../img/Logos/icon-left-font.svg";
 import SignupForm from "./SignupModal";
 import LoginForm from "./LoginModal";
-import logo from "../../img/Logos/icon-left-font-monochrome-black.png";
+import logo from "../../img/Logos/icon-left-font-monochrome-white.png";
 import { NavLink } from "react-router-dom";
 
 const Auth = () => {
@@ -35,7 +35,7 @@ const Auth = () => {
 
         <div className="main__div__container">
           <div className="back-ground">
-            <img src={background} alt="" />
+            <img src={background} alt="Background" />
           </div>
 
           <main className="mainAuth">

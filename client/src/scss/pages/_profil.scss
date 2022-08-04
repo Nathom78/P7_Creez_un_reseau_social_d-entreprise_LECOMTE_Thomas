@@ -16,7 +16,7 @@
     h1 {
         span {
             font-weight: bold;
-            color: $Secondaire-color ;
+            color: $Primaire-color ;
         }
     }
 
@@ -34,7 +34,7 @@
 
 
     .my-profil {
-        background-color: $Primaire-color ;
+        background-color: $Secondaire-color ;
         border-radius: 15px;
         margin-top: 20px;
         padding: 17px;
@@ -74,7 +74,7 @@
             padding: 5px;
             font-size: 14px;
             color: $Tertiaire-color ;
-            background-color: $Secondaire-color;
+            background-color: $Primaire-color;
             text-align: center;
             &:focus {
                 outline: none;
@@ -84,7 +84,7 @@
 
         i {
             font-size: 33px;
-            color: $Secondaire-color;
+            color: $Primaire-color;
             margin-top: 10px;
             cursor: pointer;
         }
@@ -97,7 +97,7 @@
 
         .Upload {
             padding: 10px 20px;
-            background-color: $Secondaire-color;
+            background-color: $Primaire-color;
             color: $Tertiaire-color;
             border-radius: 15px;
             cursor: pointer;
@@ -120,7 +120,7 @@
 
     .containerImg {
         img {
-            border: 1px solid $Secondaire-color;
+            border: 1px solid $Primaire-color;
             width: 200px;
             height: 200px;
             border-radius: 50%;
@@ -188,7 +188,7 @@
 
 
     button {
-        background-color: $Secondaire-color;
+        background-color: $Primaire-color;
         width: 150px;
         height: 40px;
         border: none;
