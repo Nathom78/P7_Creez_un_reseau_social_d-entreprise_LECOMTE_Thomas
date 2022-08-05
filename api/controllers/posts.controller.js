@@ -1,8 +1,8 @@
 const Post = require("../models/posts.model");
-//const userModel = require("../models/user.model");
 const fs = require('fs');
 
 exports.createPost = (req, res) => {
+  console.log(req.body);
   if (req.file) {  
     const post = new Post({
       ...req.body,
@@ -28,7 +28,7 @@ exports.createPost = (req, res) => {
   }
 };
 
-exports.updatePost = (req, res) => {
+exports.updatePost = (req, res) => {   
   // suprimer l'ancienne image si on la modifie  
   if (req.file)
     {     
@@ -77,6 +77,7 @@ exports.deletePost = async (req, res) => {
 };
 
 exports.getPosts = async (req, res) => {
+  console.log(req.body);
   Post.find()
     .sort({ createdAt: -1 }) // du plus récent au plus ancien 
     .then((posts) => res.status(200).json(posts))

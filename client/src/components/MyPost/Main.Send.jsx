@@ -16,11 +16,12 @@ const MainSend = () => {
     const data = new FormData();
     data.append("posterId", userData._id);
     data.append("message", message);
+    data.append("userId", userData._id)
     if (file) data.append("file", file);
 
     if (message.length > 0) {
-      dispatch(addPost(data, userData._id));
-      dispatch(getPosts());      
+      dispatch(addPost(data));
+      dispatch(getPosts(userData._id));      
     }
   };
 
@@ -89,8 +90,7 @@ const MainSend = () => {
             {(!message || !file ) && (
               <button onClick={handlePost} disabled>
                 <i
-                  className="fa-solid fa-paper-plane"
-                  //style={{ color: "grey" }}
+                  className="fa-solid fa-paper-plane"                  
                 ></i>
               </button>
             )}

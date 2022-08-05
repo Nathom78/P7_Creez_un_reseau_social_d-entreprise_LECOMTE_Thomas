@@ -9,6 +9,7 @@ module.exports = (req, res, next) => {
     if (req.body.userId && req.body.userId !== userId) {
       throw "userId non valide"; 
     } else { 
+      console.log("auth ok" + req.body.userId);
       next();
     }
   } catch (error) {

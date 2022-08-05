@@ -39,14 +39,11 @@ const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
     }     
   } 
   
-  const handlePicture = (e) => {
-    setFile(e.target.files[0]);
-    setPostPicture(URL.createObjectURL(e.target.files[0]));    
-  };
+  
   
   const updateItem = (e) => {    
     if (TextUpdated || file) {      
-      dispatch(updatePost(post._id, TextUpdated, file));                
+      dispatch(updatePost(post._id, userData._id, TextUpdated, file));                
     }
     setIsUpdated(false);          
   };
@@ -61,6 +58,12 @@ const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
     //Appel pour forcer le rendu du composant
     miseAJour();
     console.log(commentArray);
+  };
+
+  const handlePicture = (e) => {
+    console.log("handlepicture");
+    setFile(e.target.files[0]);
+    setPostPicture(URL.createObjectURL(e.target.files[0]));    
   };
 
   useEffect(() => {
@@ -142,18 +145,22 @@ const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
                   onChange={(e) => setTextUpdatedState(e.target.value)}
                 />
                 {postPicture && <img src={postPicture} alt="post_image" />}
+
                 <div className="iconImgBtn">
+                  
                   <label htmlFor="file-input">
                     <i className="fa-solid fa-image"></i>
                   </label>
                   <input
                     type="file"
-                    id={"file-input "+post._id}
+                    id="file-input"
                     className="file-input"
                     name="file"
                     accept=".jpg, .jpeg, .png"
                     onChange={(e) => handlePicture(e) }
-                  />
+                  />        
+                    
+                  
                   <button className="btn-updateItem Upload" onClick={updateItem}>
                     Valider les modifications
                   </button>

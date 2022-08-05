@@ -10,10 +10,11 @@ import Card from "./CardPost/Card.File.Acutaliter";
 
 const Post = () => {
   const dispatch = useDispatch();
-  const posts = useSelector(state => state.postReducer);  
+  const posts = useSelector(state => state.postReducer); 
+  const userData = useSelector((state) => state.userReducer); 
   const [commentArray , setPostCommentOn] = React.useState([]);
   useEffect( () => { 
-    dispatch(getPosts());        
+    dispatch(getPosts(userData._id));        
   }, [dispatch, posts.length]);  
 
     return (

@@ -1,5 +1,4 @@
 import { GET_USER } from "../actions/user.action";
-// import { UPLOAD_PROFIL } from "../actions/user.action";
 import { UPDATE_BIO } from "../actions/user.action";
 import { UPLOAD_AVATAR } from "../actions/user.action";
 

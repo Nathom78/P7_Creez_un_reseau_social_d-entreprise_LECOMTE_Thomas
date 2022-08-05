@@ -10,6 +10,8 @@ export const RESET_POSTS = "RESET_POSTS";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 
+
+
 const apiUrl = "http://localhost:3000/api/post";
 const authAxios = axios.create({
   baseURL: apiUrl,
@@ -18,10 +20,13 @@ const authAxios = axios.create({
   },
 });
 
-export const getPosts = () => {
+export const getPosts = (userId) => {
+  
   return (dispatch) => {
+    const data = new FormData();     
+    data.append("userId", userId);
     authAxios
-      .get(`${apiUrl}`)
+      .get(`${apiUrl}`, data)
       .then((res) => {
         dispatch({
           type: GET_POSTS,
@@ -32,8 +37,8 @@ export const getPosts = () => {
   };
 };
 
-export const addPost = (data, userId) => {
-  return (dispatch) => {
+export const addPost = (data) => { /*userId dedans */
+  return (dispatch) => {    
     authAxios
       .post(`${apiUrl}/`, data)
       .then((res) => {
@@ -75,10 +80,12 @@ export const unlikePost = (postId, userId) => {
   };
 };
 
-export const updatePost = (postId, message, file) => {
+export const updatePost = (postId, userId, message, file) => {
+  
   return (dispatch) => {
     const data = new FormData();    
     data.append("message", message);
+    data.append("userId", userId);
     if (file) data.append("file", file);
     
     authAxios      
@@ -108,7 +115,7 @@ export const deletePost = (postId) => {
   };
 };
 
-export const addComment = (postId, commenterId, text, commenterName) => {
+export const addComment = (postId, userId, commenterId, text, commenterName) => {
   return (dispatch) => {
     authAxios
       .put(`${apiUrl}/comment-post/${postId}`, {
@@ -126,7 +133,7 @@ export const addComment = (postId, commenterId, text, commenterName) => {
   };
 };
 
-export const deleteComments = (postId, commentId) => {
+export const deleteComments = (postId, userId, commentId) => {
   return (dispatch) => {
     authAxios({
       method: "delete",
