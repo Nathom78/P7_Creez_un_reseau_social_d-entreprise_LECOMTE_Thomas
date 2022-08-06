@@ -34,7 +34,7 @@
         .divContainer {
             width: 98%;
             margin: 10px auto;
-            background-color: $Secondaire-color ;
+            background-color: whitesmoke ;
             padding: 20px;
             border-radius: 15px;
             @media (max-width: 768px) {
@@ -110,9 +110,9 @@
         .divContainer {
             width: 98%;
             margin: 10px auto;
-            background-color: $Secondaire-color;
+            background-color: whitesmoke;
             padding: 20px;
-            border-radius: 15px;
+            border-radius: 15px;            
             text-align: center;
             height: 80vh;
             overflow: scroll;
@@ -158,7 +158,7 @@
             .name {
                 // margin-top: 5px;
                 font-size: 17px;
-                color: $Tertiaire-color;
+                color: $Primaire-color;
                 font-weight: bold;
             }
             i{

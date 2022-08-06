@@ -28,10 +28,7 @@ const Comment = ( { post, lastPostCommented, setLastPostCommented} ) => {
   return (
     <>
       <ul id={"commentCard"+post._id} className="comment-card"  >
-        {post.comments.map((comment) => {                    
-          
-          
-          
+        {post.comments.map((comment) => {   
           return (            
             <li
               key={comment._id}              

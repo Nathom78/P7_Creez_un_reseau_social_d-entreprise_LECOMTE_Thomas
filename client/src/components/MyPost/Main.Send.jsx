@@ -8,19 +8,11 @@ const MainSend = () => {
   const [postPicture, setPostPicture] = React.useState("");
   const [file, setFile] = React.useState(null);
   const userData = useSelector((state) => state.userReducer);
-  const dispatch = useDispatch();
-
-  
+  const dispatch = useDispatch();  
 
   const handlePost = (e) => {
-    const data = new FormData();
-    data.append("posterId", userData._id);
-    data.append("message", message);
-    data.append("userId", userData._id)
-    if (file) data.append("file", file);
-
     if (message.length > 0) {
-      dispatch(addPost(data));
+      dispatch(addPost(userData._id, message, file));      
       dispatch(getPosts(userData._id));      
     }
   };
@@ -33,8 +25,6 @@ const MainSend = () => {
   const changeMessage = (e) => {
     setMessage(e.target.value);    
   };
-
-  
 
   return (
     <main className="mainContainer__new_post">

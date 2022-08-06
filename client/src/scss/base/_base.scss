@@ -21,9 +21,8 @@ body {
     font-size: 16px;
     position: relative;
     color: $Tertiaire-color;
-    background-color: $Primaire-color;
-    overflow-x: hidden;
-    /*background-color: rgba(243, 244, 246, 1);*/
+    background-color: $Secondaire-color;
+    overflow-x: hidden;    
     overflow: scroll;
     &::-webkit-scrollbar {
         display: none;

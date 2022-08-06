@@ -37,9 +37,7 @@ const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
       setPostCommentOn([...commentArray, postId ]);
       (!allreadyOn)&&flouBack.classList.toggle("flou-appear"); 
     }     
-  } 
-  
-  
+  }   
   
   const updateItem = (e) => {    
     if (TextUpdated || file) {      
@@ -56,12 +54,10 @@ const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
     divComment.classList.toggle("see");    
     UseFlou(post._id);    
     //Appel pour forcer le rendu du composant
-    miseAJour();
-    console.log(commentArray);
+    miseAJour();    
   };
 
-  const handlePicture = (e) => {
-    console.log("handlepicture");
+  const handlePicture = (e) => {    
     setFile(e.target.files[0]);
     setPostPicture(URL.createObjectURL(e.target.files[0]));    
   };
@@ -73,8 +69,13 @@ const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
   useEffect(() => { /* Pour remettre les commentaires ouvert aprés un render juste aprés un ajout d'un commentaire ou une supression */
     commentArray.forEach(el => {
       let doc = document.getElementById("post"+el);
-      if (!doc.classList.value.includes("see")) doc.classList.toggle("see");
-    })   
+      if (!doc.classList.value.includes("see")) doc.classList.toggle("see");          
+    });    
+    if (!isEmpty(commentArray)) {
+      const flouBack = document.getElementById("flou");
+      const allreadyOn = flouBack.classList.contains("flou-appear")
+      !allreadyOn&&flouBack.classList.toggle("flou-appear");
+    }
   },[]);
   
   useEffect(() => miseAJour(),[]);
@@ -122,7 +123,7 @@ const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
                   className="fa fa-edit"
                   onClick={() => setIsUpdated(!isUpdated)}
                 ></i>
-                <DeleteCard post={post._id} />
+                <DeleteCard post={post._id} commentArray={commentArray} setPostCommentOn={setPostCommentOn} />
               </div>
             ) : null}            
           </div>

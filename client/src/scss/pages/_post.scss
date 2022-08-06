@@ -1,10 +1,8 @@
-
-
 .postContainer {
     border-radius: 15px;
     margin-top: 20px;
     padding: 10px;
-    background-color: $Secondaire-color;
+    background-color: whitesmoke;
     color: $Tertiaire-color;
     font-size: 17px;
     width: 70%;
@@ -73,13 +71,11 @@
         &:focus {
             outline: none;
         }
-    }
-
-    
+    }    
 
     .comment-card {
         width: 100%;
-        background-color: $Secondaire-color;
+        background-color: whitesmoke;
         display: none;
         border-top: 2px solid $Tertiaire-color;
         padding: 20px 0;
@@ -92,11 +88,12 @@
         border: 3px solid $Tertiaire-color;
         border-radius: 30px 20px 0px 30px;
         margin-top: 30px;
+        background-color: $Secondaire-color;
+        color: $Tertiaire-color ;
     }
 
     .is-author {
-        background-color: $Secondaire-color;
-        color: $Tertiaire-color ;
+        
 
         i.fa.fa-trash {
             color: $Tertiaire-color;
@@ -151,6 +148,7 @@
         text-align: start;
         display: flex;
         justify-content: space-between;
+        border-top: 1px dotted $Tertiaire-color;     
 
         i.fa-trash {
             transition: all 0.1s ease-in-out;

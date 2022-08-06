@@ -16,17 +16,16 @@ const apiUrl = "http://localhost:3000/api/post";
 const authAxios = axios.create({
   baseURL: apiUrl,
   headers: {
-    Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
+    Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,    
   },
 });
 
 export const getPosts = (userId) => {
   
   return (dispatch) => {
-    const data = new FormData();     
-    data.append("userId", userId);
+    
     authAxios
-      .get(`${apiUrl}`, data)
+      .get(`${apiUrl}`, {userId : userId})
       .then((res) => {
         dispatch({
           type: GET_POSTS,
@@ -37,7 +36,13 @@ export const getPosts = (userId) => {
   };
 };
 
-export const addPost = (data) => { /*userId dedans */
+export const addPost = (userId, message, file ) => { 
+  const data = new FormData();
+  data.append("posterId", userId);
+  data.append("message", message);
+  data.append("userId", userId);
+  if (file) data.append("file", file);
+
   return (dispatch) => {    
     authAxios
       .post(`${apiUrl}/`, data)
@@ -80,14 +85,14 @@ export const unlikePost = (postId, userId) => {
   };
 };
 
-export const updatePost = (postId, userId, message, file) => {
-  
+export const updatePost = (postId, userId, message, file ) => {
+  console.log(userId);
   return (dispatch) => {
     const data = new FormData();    
-    data.append("message", message);
-    data.append("userId", userId);
+    data.append("message", message);    
     if (file) data.append("file", file);
-    
+    data.append("userId", userId);
+
     authAxios      
       .put(`${apiUrl}/${postId}`, data )
       .then((res) => {        
@@ -115,7 +120,7 @@ export const deletePost = (postId) => {
   };
 };
 
-export const addComment = (postId, userId, commenterId, text, commenterName) => {
+export const addComment = (postId, commenterId, text, commenterName) => {
   return (dispatch) => {
     authAxios
       .put(`${apiUrl}/comment-post/${postId}`, {
@@ -133,7 +138,7 @@ export const addComment = (postId, userId, commenterId, text, commenterName) => 
   };
 };
 
-export const deleteComments = (postId, userId, commentId) => {
+export const deleteComments = (postId, commentId) => {
   return (dispatch) => {
     authAxios({
       method: "delete",
@@ -142,8 +147,7 @@ export const deleteComments = (postId, userId, commentId) => {
         commentId: commentId,
       },
     })
-      .then(() => {
-        console.log("comment deleted");
+      .then(() => {        
         dispatch({
           type: DELETE_COMMENT,
           payload: { postId, commentId },

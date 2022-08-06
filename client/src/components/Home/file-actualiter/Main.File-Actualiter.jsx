@@ -13,11 +13,11 @@ const Post = () => {
   const posts = useSelector(state => state.postReducer); 
   const userData = useSelector((state) => state.userReducer); 
   const [commentArray , setPostCommentOn] = React.useState([]);
-  useEffect( () => { 
+  useEffect( () => {     
     dispatch(getPosts(userData._id));        
   }, [dispatch, posts.length]);  
 
-    return (
+  return (
     <>
       <main className="mainContainer__post">
         {!isEmpty(posts[0]) &&

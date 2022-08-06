@@ -4,7 +4,7 @@ header {
     justify-content: space-around;
     align-items: center;
     padding: 0.5rem 1rem;
-    background-color: $Tertiaire-color;
+    background-color: $Primaire-color;
     // box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, .08);
     height: 90px;
     @media (max-width: 768px) {
@@ -67,7 +67,7 @@ header {
             transition: all 0.2s ease-in-out;
 
             &:hover {
-                background-color: $Primaire-color;
+                background-color: $Tertiaire-color;
                 color: $Secondaire-color;
             }
 

@@ -2,8 +2,8 @@ const Post = require("../models/posts.model");
 const fs = require('fs');
 
 exports.createPost = (req, res) => {
-  console.log(req.body);
-  if (req.file) {  
+ 
+  if (req.file) { 
     const post = new Post({
       ...req.body,
       posterId: req.body.posterId,
@@ -16,6 +16,7 @@ exports.createPost = (req, res) => {
       .then((post) => res.status(201).json(post))
       .catch((err) => res.status(400).json("Error: " + err));
   } else {
+    console.log(req.body);
     const post = new Post({
       ...req.body,
       posterId: req.body.posterId,
@@ -62,13 +63,13 @@ exports.deletePost = async (req, res) => {
         res.status(404).json({
           error: new Error('aucun post!')
         });
-      }
-      
-      const filename = post.imageUrl.split('/medias/')[1];
+      }      
+      if (post.imageUrl){
+      const filename = post.imageUrl.split('/medias/')[1];      
       fs.exists(`medias/${filename}`, (exist) => {          
         if(exist) fs.unlink(`medias/${filename}`,() => {})
-
       });
+      }
       Post.deleteOne({ _id: req.params.id })
           .then(() => res.status(200).json({ message: 'Objet supprimé !'}))
           .catch(error => res.status(400).json({ error }));
@@ -76,8 +77,7 @@ exports.deletePost = async (req, res) => {
     .catch(error => res.status(500).json({ error }));
 };
 
-exports.getPosts = async (req, res) => {
-  console.log(req.body);
+exports.getPosts = async (req, res) => {  
   Post.find()
     .sort({ createdAt: -1 }) // du plus récent au plus ancien 
     .then((posts) => res.status(200).json(posts))
