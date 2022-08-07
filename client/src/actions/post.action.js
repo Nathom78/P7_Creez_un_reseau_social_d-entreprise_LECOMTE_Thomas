@@ -20,6 +20,8 @@ const authAxios = axios.create({
   },
 });
 
+// Postes
+
 export const getPosts = (userId) => {
   
   return (dispatch) => {
@@ -57,33 +59,6 @@ export const addPost = (userId, message, file ) => {
   };
 };
 
-export const likePost = (postId, userId) => {
-  return (dispatch) => {
-    authAxios
-      .put(`${apiUrl}/like-post/${postId}`, { userId, like: 1 })
-      .then(() => {
-        dispatch({
-          type: LIKE_POST,
-          payload: { postId, userId },
-        });
-      })
-      .catch((err) => console.log(err));
-  };
-};
-
-export const unlikePost = (postId, userId) => {
-  return (dispatch) => {
-    authAxios
-      .put(`${apiUrl}/unlike-post/${postId}`, { userId, like: 0 })
-      .then(() => {
-        dispatch({
-          type: UNLIKE_POST,
-          payload: { postId, userId },
-        });
-      })
-      .catch((err) => console.log(err));
-  };
-};
 
 export const updatePost = (postId, userId, message, file ) => {
   console.log(userId);
@@ -119,6 +94,38 @@ export const deletePost = (postId) => {
       .catch((err) => console.log(err));
   };
 };
+
+// Likes
+
+export const likePost = (postId, userId) => {
+  return (dispatch) => {
+    authAxios
+      .put(`${apiUrl}/like-post/${postId}`, { userId, like: 1 })
+      .then(() => {
+        dispatch({
+          type: LIKE_POST,
+          payload: { postId, userId },
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const unlikePost = (postId, userId) => {
+  return (dispatch) => {
+    authAxios
+      .put(`${apiUrl}/unlike-post/${postId}`, { userId, like: 0 })
+      .then(() => {
+        dispatch({
+          type: UNLIKE_POST,
+          payload: { postId, userId },
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+// Comments
 
 export const addComment = (postId, commenterId, text, commenterName) => {
   return (dispatch) => {
