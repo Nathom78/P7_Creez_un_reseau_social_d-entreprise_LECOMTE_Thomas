@@ -15,7 +15,7 @@ const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
   const dispatch = useDispatch();
 
   const [isUpdated, setIsUpdated] = React.useState(false);
-  const [TextUpdated, setTextUpdatedState] = React.useState(null);
+  const [TextUpdated, setTextUpdatedState] = React.useState(post.message);
   const [postPicture, setPostPicture] = React.useState(post.imageUrl);
   const [file, setFile] = React.useState(null);   
 
@@ -41,7 +41,7 @@ const CardAcutaliter = ({ post, commentArray, setPostCommentOn}) => {
   
   const updateItem = (e) => {    
     if (TextUpdated || file) {      
-      dispatch(updatePost(post._id, userData._id, TextUpdated, file));                
+      dispatch(updatePost(post._id, TextUpdated, file));                
     }
     setIsUpdated(false);          
   };

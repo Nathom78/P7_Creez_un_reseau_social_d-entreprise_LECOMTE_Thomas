@@ -60,13 +60,13 @@ export const addPost = (userId, message, file ) => {
 };
 
 
-export const updatePost = (postId, userId, message, file ) => {
-  console.log(userId);
+export const updatePost = (postId, message, file ) => {
+  
   return (dispatch) => {
     const data = new FormData();    
     data.append("message", message);    
     if (file) data.append("file", file);
-    data.append("userId", userId);
+    
 
     authAxios      
       .put(`${apiUrl}/${postId}`, data )
