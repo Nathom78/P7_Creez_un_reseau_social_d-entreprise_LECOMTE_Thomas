@@ -1,0 +1,12 @@
+{
+    "_id" : ObjectId("62ef790d17bc23b27a5cb028"),
+    "name" : "Gael",
+    "email" : "admin@admin.fr",
+    "password" : "$2b$10$OdTX8Tk0G1iJXLcCdXCyG.tTRwt8MM2z4GRFYFSKklm5momG0.q/i",
+    "role" : "admin",
+    "bio" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam impedit aliquam consequuntur odio amet eum accusamus explicabo corporis, est magni. ",
+    "avatar" : "https://img.myloview.fr/papiers-peints/humain-homme-personne-avatar-profil-utilisateur-vector-icon-illustration-700-80657983.jpg",
+    "createdAt" : ISODate("2022-08-07T08:34:21.304+0000"),
+    "updatedAt" : ISODate("2022-08-07T08:34:21.304+0000"),
+    "__v" : NumberInt(0)
+}

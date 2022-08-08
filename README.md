@@ -55,6 +55,9 @@ TOKEN_TIME_LIFE=3600000
 
 </code></pre>
 
+PS: J'ai mis à disposition un fichier user.json, exporté avec `STUDIO 3T`, afin d'importer l'administrateur dans votre base de donnée, vous pouvez le trouver :
+- `client\public\users.json`
+
 Puis lancez le serveur en tapant la commande :  <pre><code> `npm start`</code></pre>
 
 Vous devriez voir 
@@ -88,3 +91,4 @@ Une fois la base de données créé, vous devriez avoir :
 - Un mot de passe de connexion à la base de données
 - une adresse pour accéder à la base afin de se connecter qui peux se trouver dans Deployment -> Cluster -> Connect -> connect your application : 
 (de type mongodb+srv://<username>:<password>@cluster0.afknvvw.mongodb.net/<nom_de_la_database>?retryWrites=true&w=majority) où <nom_de_la_database> est le nom si une de crée manuellement sinon par defaut c'est vierge.
+
