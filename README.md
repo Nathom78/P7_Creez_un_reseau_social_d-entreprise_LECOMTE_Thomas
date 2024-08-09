@@ -77,7 +77,7 @@ Rendez-vous sur [`http://localhost:4200/`](http://localhost:4200/). L'applicatio
 <br>
 ## Technologies
 
-[![My Skills](https://skills.thijs.gg/icons?i=react,js,ts,nodejs,mongodb,express,html,sass,css,git,github)](https://skills.thijs.gg)
+[![My Skills](https://skillicons.dev/icons?i=react,js,ts,nodejs,mongodb,express,html,sass,css,git,github)](https://skillicons.dev)
 <br><br><br><br>
 ## Annexe. Création d'une base de données noSQL MongoDB
 
