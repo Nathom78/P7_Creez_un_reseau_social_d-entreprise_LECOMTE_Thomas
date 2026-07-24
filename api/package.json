@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/Nathom78/P7_Creez_un_reseau_social_d-entreprise_LECOMTE_Thomas#readme",
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "bcrypt": "^6.0.0",
     "dotenv": "^16.0.1",
     "express": "^4.22.1",
     "helmet": "^5.1.0",
@@ -26,7 +26,7 @@
     "mongoose": "^6.12.0",
     "mongoose-unique-validator": "^3.1.0",
     "multer": "^2.1.1",
-    "nodemon": "^2.0.19",
+    "nodemon": "^3.1.14",
     "path": "^0.12.7",
     "pipeline": "^0.1.3",
     "promisify": "^0.0.3"
