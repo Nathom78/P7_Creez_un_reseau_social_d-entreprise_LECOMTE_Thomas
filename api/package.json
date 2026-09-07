@@ -25,7 +25,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.13.10",
     "mongoose-unique-validator": "^3.1.0",
-    "multer": "^2.1.1",
+    "multer": "^2.2.0",
     "nodemon": "^2.0.19",
     "path": "^0.12.7",
     "pipeline": "^0.1.3",
